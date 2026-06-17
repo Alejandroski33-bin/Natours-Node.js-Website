@@ -27,8 +27,14 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 // Serving static files
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
+// Access-Control-Allow-origin *
+// api.n
+
+app.optins('*', cors());
+
 // 1) GLOBAL MIDLEWARES
 // Security HTTP headers
 app.use(
