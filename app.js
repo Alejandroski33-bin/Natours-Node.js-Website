@@ -8,8 +8,10 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const mongoose = require('mongoose');
 
 const cors = require('cors');
+const mongoDb = require('./public/js/mongodb');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const tourRouter = require('./routes/tourRoutes');
@@ -34,6 +36,14 @@ app.use(
     crossOriginEmbedderPolicy: false,
   }),
 );
+
+mongoose
+  .connect('your_mongodb_uri', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((err) => console.error('Could not connect to MongoDB', err));
 
 // Further HELMET configuration for Security Policy (CSP)
 const scriptSrcUrls = [
