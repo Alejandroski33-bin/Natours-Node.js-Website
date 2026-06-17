@@ -33,7 +33,7 @@ app.use(cors());
 // Access-Control-Allow-origin *
 // api.n
 
-app.optins('*', cors());
+app.options('*', cors());
 
 // 1) GLOBAL MIDLEWARES
 // Security HTTP headers
