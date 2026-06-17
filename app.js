@@ -159,7 +159,7 @@ app.use(
       'ratingsQuantity',
       'maxGroupSize',
       'difficulty',
-      'pricef',
+      'price',
     ],
   }),
 );
