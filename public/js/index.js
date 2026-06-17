@@ -4,7 +4,7 @@ import { login, logout } from './login';
 import { updateSettings } from './updateSettings';
 import { bookTour } from './stripe';
 
-// DOM ELEMENTS
+// DOM ELEMENTS MANIPULATION
 const mapBox = document.getElementById('map');
 const loginForm = document.querySelector('.form--login');
 const logOutBtn = document.querySelector('.nav__el--logout');
