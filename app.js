@@ -42,6 +42,7 @@ const scriptSrcUrls = [
   'https://*.cloudflare.com',
   'ws://127.0.0.1:37987/',
   'https://js.stripe.com',
+  'https://vercel.com/',
 ];
 const styleSrcUrls = [
   'https://api.mapbox.com/',
@@ -50,6 +51,7 @@ const styleSrcUrls = [
   'https://www.myfonts.com/fonts/radomir-tinkov/gilroy/*',
   'ws://127.0.0.1:37987/',
   'https://js.stripe.com',
+  'https://vercel.com/',
 ];
 const connectSrcUrls = [
   'https://*.mapbox.com/',
@@ -57,6 +59,7 @@ const connectSrcUrls = [
   'http://127.0.0.1:3000',
   'ws://127.0.0.1:37987/',
   'https://js.stripe.com',
+  'https://vercel.com/',
 ];
 
 const fontSrcUrls = ['fonts.googleapis.com', 'fonts.gstatic.com'];
@@ -92,6 +95,7 @@ app.use(
         'http://localhost:8000',
         'ws://127.0.0.1:37987/',
         'https://js.stripe.com',
+        'https://vercel.com/',
       ],
       'img-src': [
         "'self'",
@@ -106,6 +110,7 @@ app.use(
         'http://localhost:8000',
         'ws://127.0.0.1:37987/',
         'https://js.stripe.com',
+        'https://vercel.com/',
       ],
       'frame-src': ['https://js.stripe.com'],
     },
