@@ -11,6 +11,23 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
 
   if (!tour) return next(new AppError('Tour not found!', 404));
 
+  const transformedItems = [
+    {
+      quantity: 1,
+      price_data: {
+        currency: 'usd',
+        unit_amount: tour.price * 100,
+        product_data: {
+          name: `${tour.name} Tour`,
+          description: tour.description, //description here
+          images: [
+            `${req.protocol}://${req.get('host')}/img/tours/${tour.imageCover}`,
+          ], //only accepts live images (images hosted on the internet),
+        },
+      },
+    },
+  ];
+
   // create a checkout session
   const session = await stripe.checkout.sessions.create({
     mode: 'payment',
@@ -19,25 +36,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     cancel_url: `${req.protocol}://${req.get('host')}/tour/${tour.slug}`,
     customer_email: req.user.email,
     client_reference_id: req.params.tourId,
-    line_items: [
-      {
-        description: `${tour.summary}`,
-        price_data: {
-          unit_amount: tour.price * 100,
-          currency: 'usd',
-          product_data: {
-            name: tour.name,
-            description: `${tour.summary}`,
-            images: [
-              `${req.protocol}://${req.get('host')}/img/tours/${
-                tour.imageCover
-              }`,
-            ],
-          },
-        },
-        quantity: 1,
-      },
-    ],
+    line_items: transformedItems,
   });
 
   // res.redirect(303, session.url); // Ignore this, only for front-end implementation via form action
