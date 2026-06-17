@@ -149,7 +149,7 @@ app.use('/api', limiter);
 
 app.post(
   '/webhook-checkout',
-  express.rax({ type: 'application/json' }),
+  express.raw({ type: 'application/json' }),
   bookingController.webhookCheckout,
 );
 
