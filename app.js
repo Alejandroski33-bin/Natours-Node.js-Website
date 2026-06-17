@@ -11,7 +11,7 @@ const compression = require('compression');
 const mongoose = require('mongoose');
 
 const cors = require('cors');
-const mongoDb = require('./public/js/mongodb');
+// const mongoDb = require('./public/js/mongodb');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const tourRouter = require('./routes/tourRoutes');
